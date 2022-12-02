@@ -2,10 +2,10 @@ package com.character;
 
 public interface CharaSkill {
 
-	public int attBasicAttack();
+	public int attBasicAttack(); // basic Attack
 	
-	public int attSkill();
+	public int attSkill(); // Skill 1
 	
-	public int attUltimateSkill();
+	public int attUltimateSkill(); //Skill 2
 	
 }
