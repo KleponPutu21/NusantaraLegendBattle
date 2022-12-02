@@ -12,20 +12,22 @@ public class NyiRoroKidulStat extends Character implements CharaSkill{
 	
 
 	@Override
-	public int attBasicAttack() {
+	public void attBasicAttack(Character c) {
 		// TODO Auto-generated method stub
-		return (this.getbaseAttPoint());
+		c.setHealthPoint(c.getHealthPoint() - this.getbaseAttPoint());
 	}
 
 	@Override
-	public int attSkill() {
-		return(this.getbaseAttPoint() + this.randExtraAtt(20, 50));
+	public void attSkill(Character c) {
+		int att = this.getbaseAttPoint() + this.randExtraAtt(20, 30);
+		c.setHealthPoint(c.getHealthPoint() - att);
 	}
 
 	@Override
-	public int attUltimateSkill() {
+	public void attUltimateSkill(Character c) {
 		// TODO Auto-generated method stub
-		return (this.getbaseAttPoint() + this.randExtraAtt(60, 100));
+		int att = this.getbaseAttPoint() + this.randExtraAtt(60, 40);
+		c.setHealthPoint(c.getHealthPoint() - att);
 	}
 	
 	

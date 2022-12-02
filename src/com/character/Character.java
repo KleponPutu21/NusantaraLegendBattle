@@ -21,6 +21,10 @@ public class Character {
 		return this.baseAttPoint;
 	}
 	
+	public void setHealthPoint(int currHealthPoint) {
+		this.healthPoint = currHealthPoint;
+	}
+	
 	public int randExtraAtt(int a, int b) {
 		return(a + rand.nextInt(b));
 	}

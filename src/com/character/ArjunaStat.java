@@ -10,21 +10,25 @@ public class ArjunaStat extends Character implements CharaSkill{
 	
 
 	@Override
-	public int attBasicAttack() {
+	public void attBasicAttack(Character c) {
 		// TODO Auto-generated method stub
-		return (this.getbaseAttPoint());
+		c.setHealthPoint(c.getHealthPoint() - this.getbaseAttPoint());
 	}
 
 	@Override
-	public int attSkill() {
+	public void attSkill(Character c) {
 		// TODO Auto-generated method stub
-		return (this.getbaseAttPoint() + this.randExtraAtt(20, 50)); // 120 - 170
+		// 120 - 150
+		int att = this.getbaseAttPoint() + this.randExtraAtt(20, 30);
+		c.setHealthPoint(c.getHealthPoint() - att);
 	}
 
 	@Override
-	public int attUltimateSkill() {
+	public void attUltimateSkill(Character c) {
 		// TODO Auto-generated method stub
-		return (this.getbaseAttPoint() + this.randExtraAtt(60, 100)); // 160 - 260
+		// 160 - 200
+		int att = this.getbaseAttPoint() + this.randExtraAtt(60, 40);
+		c.setHealthPoint(c.getHealthPoint() - att);
 	}
 	
 	
