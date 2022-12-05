@@ -5,11 +5,11 @@ import javax.swing.JButton;
 public class AttackButton {
 
 	private String buttonType;
-	private JButton button;
+	private char symbol;
 	
-	public AttackButton(String type) {
+	public AttackButton(String type, char symbol) {
 		this.buttonType = type;
-		this.button = new JButton(buttonType);
+		this.symbol = symbol;
 	}
 	
 }
