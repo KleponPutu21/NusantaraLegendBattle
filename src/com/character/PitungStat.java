@@ -17,6 +17,10 @@ public class PitungStat extends Character implements CharaSkill{
 	@Override
 	public void attSkill(Character c) {
 		// TODO Auto-generated method stub
+		int att = this.getbaseAttPoint() + this.randExtraAtt(10, 20);
+		c.setHealthPoint(c.getHealthPoint() - att); //Berkurang 110 - 130
+		this.setHealthPoint(this.randExtraAtt(50, 50)); // heal 50 - 100
+		
 	} //perlu diganti biar sesuai sama skill nya
 
 	@Override
