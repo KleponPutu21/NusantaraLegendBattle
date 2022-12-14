@@ -12,4 +12,12 @@ public class AttackButton {
 		this.symbol = symbol;
 	}
 	
+	public boolean isSymbolMatch(char symbol) {
+		if(this.symbol == symbol) {
+			return true;
+		}
+		
+		return false;
+	}
+	
 }

@@ -22,9 +22,17 @@ public class BattlePanel extends JPanel implements KeyListener{
 		this.player1 = P1;
 		this.player2 = P2;
 		
+		
 		this.setPreferredSize(new Dimension(width, height));
 		
 		this.attButtons = new ArrayList<AttackButton>();
+		
+		this.attButtons.add(new AttackButton("Basic Attack", 'a'));
+		this.attButtons.add(new AttackButton("Skill", 's'));
+		this.attButtons.add(new AttackButton("Ulimate Skill", 'd'));
+		
+		this.addKeyListener(this);
+		this.setFocusable(true);
 	}
 
 	@Override
