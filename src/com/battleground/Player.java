@@ -10,12 +10,16 @@ public class Player{
 
 	private final int defaultHP = 1000;
 	private final int defaultAP = 100;
+	private final static int DEAD = 0;
+	private final static int ALIVE = 1;
 	
 	private int characterCode;
+	private int playerStatus;
 	Character avatar;
 	
 	public Player(int cCode) {
 		this.characterCode = cCode;
+		this.playerStatus = ALIVE;
 	}
 	
 	public void setKarakter() {
@@ -32,12 +36,19 @@ public class Player{
 	public void playerAttack(Player p) {
 		avatar.attBasicAttack(p.avatar);
 	}
+	
+	public void playerSkill(Player p) {
+		avatar.attSkill(p.avatar);
+	}
+	
+	public void playerUltimateSkill(Player p) {
+		avatar.attUltimateSkill(p.avatar);
+	}
 
-	public boolean isPlayerDead() {
+	public void isPlayerDead() {
 		if(avatar.getHealthPoint() == 0) {
-			return true;
+			this.playerStatus = DEAD;
 		}
-		return false;
 	}
 	
 }
