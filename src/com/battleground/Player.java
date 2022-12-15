@@ -12,7 +12,7 @@ public class Player{
 	private final int defaultAP = 100;
 	
 	private int characterCode;
-	private Character avatar;
+	Character avatar;
 	
 	public Player(int cCode) {
 		this.characterCode = cCode;
@@ -28,8 +28,16 @@ public class Player{
 		}
 		
 	}
-
-
 	
+	public void playerAttack(Player p) {
+		avatar.attBasicAttack(p.avatar);
+	}
+
+	public boolean isPlayerDead() {
+		if(avatar.getHealthPoint() == 0) {
+			return true;
+		}
+		return false;
+	}
 	
 }
