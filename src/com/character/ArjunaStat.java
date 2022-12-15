@@ -1,7 +1,7 @@
 package com.character;
 
 
-public class ArjunaStat extends Character implements CharaSkill{
+public class ArjunaStat extends Character{
 
 	
 	public ArjunaStat(int ArjunaHP, int ArjunaBaseAttPoint) {

@@ -2,7 +2,7 @@ package com.character;
 
 import java.util.Random;
 
-public class Character {
+public abstract class Character implements CharaSkill{
 
 	private int healthPoint;
 	private int baseAttPoint;

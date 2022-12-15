@@ -1,7 +1,7 @@
 package com.character;
 
 
-public class NyiRoroKidulStat extends Character implements CharaSkill{
+public class NyiRoroKidulStat extends Character{
 
 	
 	public NyiRoroKidulStat(int nyiHP, int nyiBaseAttPoint) {

@@ -1,7 +1,7 @@
 package com.character;
 
 
-public class PitungStat extends Character implements CharaSkill{
+public class PitungStat extends Character{
 
 	
 	public PitungStat(int PitungHP, int PitungBaseAttPoint) {
