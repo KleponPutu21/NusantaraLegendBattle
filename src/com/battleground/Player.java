@@ -45,10 +45,15 @@ public class Player{
 		avatar.attUltimateSkill(p.avatar);
 	}
 
-	public void isPlayerDead() {
+	public void playerDead() {
 		if(avatar.getHealthPoint() == 0) {
 			this.playerStatus = DEAD;
 		}
+	}
+	
+	public boolean isPlayerDead() {
+		if(avatar.getHealthPoint() == 0) return true;
+		return false;
 	}
 	
 }

@@ -45,13 +45,53 @@ public class BattleSystem extends JPanel implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+		char key = e.getKeyChar();
 		
+		for(AttackingKey ak :this.attKeys) {
+			if(ak.isSymbolMatch(key) && key == 'a') {
+				if(turnState == PLAYER1_TURN) {
+					p1.playerAttack(p2);
+				}else if(turnState == PLAYER2_TURN) { 
+					p2.playerAttack(p1);
+				}
+			}else if(ak.isSymbolMatch(key) && key == 's') {
+				if(turnState == PLAYER1_TURN) {
+					p1.playerSkill(p2);
+				}else if(turnState == PLAYER2_TURN) {
+					p2.playerSkill(p1);
+				}
+			}else if(ak.isSymbolMatch(key) && key == 'd') {
+				if(turnState == PLAYER1_TURN) {
+					p1.playerUltimateSkill(p2);
+				}else if(turnState == PLAYER2_TURN) {
+					p2.playerUltimateSkill(p1);
+				}
+			}
+		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+		char key = e.getKeyChar();
 		
+		for(AttackingKey ak : this.attKeys) {
+			if(ak.isSymbolMatch(key)) {
+				if(turnState == PLAYER1_TURN) {
+					if(p2.isPlayerDead()) {		//p2 kalah
+						p2.playerDead();
+					}
+					this.setTurnState(PLAYER2_TURN);
+					
+				}else if(turnState == PLAYER2_TURN) {
+					if(p1.isPlayerDead()) {		//p1 kalah
+						p1.playerDead();
+					}
+					this.setTurnState(PLAYER1_TURN);
+				}
+				
+			}
+		}
 	}
 	
 	

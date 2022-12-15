@@ -20,6 +20,10 @@ public class AttackingKey {
 		return false;
 	}
 	
+	public char getSymbol() {
+		return this.symbol;
+	}
+	
 	public void setPressed() {
 		this.state = PRESSED;
 	}
