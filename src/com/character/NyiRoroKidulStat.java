@@ -4,11 +4,13 @@ import java.awt.Graphics;
 
 public class NyiRoroKidulStat extends Character{
 
+	private final static int WATER_BALL = 0;
+	private final static int WATER_WAVE = 1;
 	
 	public NyiRoroKidulStat(int nyiHP, int nyiBaseAttPoint) {
 		super(nyiHP, nyiBaseAttPoint);
+		this.characterState = DO_NOTHING;
 	}
-	
 	
 	
 
@@ -38,6 +40,19 @@ public class NyiRoroKidulStat extends Character{
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+
+
+	@Override
+	public void drawAnimation(Graphics g) {
+		// TODO Auto-generated method stub
+		if(this.skillAnimationState == WATER_BALL) {
+			//draw water ball;
+		}else if(this.skillAnimationState == WATER_WAVE) {
+			//draw water wave;
+		}
 	}
 	
 	

@@ -4,7 +4,7 @@ import com.character.Character;
 import com.character.ArjunaStat;
 import com.character.NyiRoroKidulStat;
 import com.character.PitungStat;
-import com.character.CharaSkill;
+import com.character.CharacterSkill;
 
 public class Player{
 
@@ -12,6 +12,11 @@ public class Player{
 	private final int defaultAP = 100;
 	private final static int DEAD = 0;
 	private final static int ALIVE = 1;
+	//state skill untuk dikirimkan ke masing2 karakter untuk update draw
+	private final static int DO_NOTHING = 0;
+	private final static int USING_ATTACK = 1;
+	private final static int USING_SKILL = 2;
+	private final static int USING_ULTIMATE = 3;
 	
 	private int characterCode;
 	private int playerStatus;
@@ -30,6 +35,8 @@ public class Player{
 		case 2:
 			this.avatar = new ArjunaStat(defaultHP, defaultAP);
 		}
+		
+		this.playerStatus = DO_NOTHING;
 		
 	}
 	
@@ -54,6 +61,11 @@ public class Player{
 	public boolean isPlayerDead() {
 		if(avatar.getHealthPoint() == 0) return true;
 		return false;
+	}
+	
+	//draw
+	public void avatarDraw() {
+		
 	}
 	
 }

@@ -2,7 +2,7 @@ package com.character;
 
 import java.awt.Graphics;
 
-public interface CharaSkill {
+public interface CharacterSkill {
 
 	public void attBasicAttack(Character c); // basic Attack
 	
@@ -11,5 +11,7 @@ public interface CharaSkill {
 	public void attUltimateSkill(Character c); //Skill 2
 	
 	public void draw(Graphics g);
+	
+	public void drawAnimation(Graphics g);
 	
 }

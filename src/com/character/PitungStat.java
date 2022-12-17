@@ -36,6 +36,12 @@ public class PitungStat extends Character{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void drawAnimation(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
