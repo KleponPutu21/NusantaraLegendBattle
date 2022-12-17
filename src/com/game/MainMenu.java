@@ -78,9 +78,9 @@ public class MainMenu implements KeyListener {
     
     public void getImageMainMenu(){
         try {
-            bg_mainmenu = ImageIO.read(getClass().getResourceAsStream("/main_menu_background.png"));
-            exit_button = ImageIO.read(getClass().getResourceAsStream("/exit_button.png"));
-            play_button = ImageIO.read(getClass().getResourceAsStream("/play_button.png"));
+            bg_mainmenu = ImageIO.read(getClass().getResourceAsStream("/mainmenu/main_menu_background.png"));
+            exit_button = ImageIO.read(getClass().getResourceAsStream("/mainmenu/exit_button.png"));
+            play_button = ImageIO.read(getClass().getResourceAsStream("/mainmenu/play_button.png"));
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -89,8 +89,8 @@ public class MainMenu implements KeyListener {
     public void draw(Graphics2D g2){
         
         g2.drawImage(bg_mainmenu, 0, 0, 640, 480, null);
-        g2.drawImage(play_button, 300, 240, 640, 480, null);
-        g2.drawImage(exit_button, 300, 360, 640, 480, null);
+        g2.drawImage(play_button, 300, 200, 45, 45, null);
+        g2.drawImage(exit_button, 300, 270, 45, 45, null);
     }
  
 }

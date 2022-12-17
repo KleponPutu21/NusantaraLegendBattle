@@ -14,7 +14,7 @@ public class Main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Nusantara Legend Battle");
 
-		GamePanel gamePanel = new GamePanel(720, 480);
+		GamePanel gamePanel = new GamePanel(680, 480);
 		frame.add(gamePanel);
 
 		frame.pack();
