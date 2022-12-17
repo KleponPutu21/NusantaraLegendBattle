@@ -1,5 +1,6 @@
 package com.character;
 
+import java.awt.Graphics;
 
 public class ArjunaStat extends Character{
 
@@ -29,6 +30,13 @@ public class ArjunaStat extends Character{
 		// 160 - 200
 		int att = this.getbaseAttPoint() + this.randExtraAtt(60, 40);
 		c.setHealthPoint(c.getHealthPoint() - att);
+	}
+
+
+	@Override
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

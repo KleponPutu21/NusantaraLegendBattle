@@ -14,6 +14,9 @@ public class BattlePanel extends JPanel{
 		
 		this.setPreferredSize(new Dimension(width, height));
 		this.bs = new BattleSystem(p1, p2);
+		
+		this.addKeyListener(bs);
+		this.setFocusable(true);
 	}
 	
 

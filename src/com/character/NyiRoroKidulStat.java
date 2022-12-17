@@ -1,5 +1,6 @@
 package com.character;
 
+import java.awt.Graphics;
 
 public class NyiRoroKidulStat extends Character{
 
@@ -28,6 +29,15 @@ public class NyiRoroKidulStat extends Character{
 		// TODO Auto-generated method stub
 		int att = this.getbaseAttPoint() + this.randExtraAtt(60, 40);
 		c.setHealthPoint(c.getHealthPoint() - att);
+	}
+
+
+
+
+	@Override
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

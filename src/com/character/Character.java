@@ -28,4 +28,5 @@ public abstract class Character implements CharaSkill{
 	public int randExtraAtt(int a, int b) {
 		return(a + rand.nextInt(b));
 	}
+	
 }

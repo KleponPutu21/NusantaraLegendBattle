@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-public class BattleSystem extends JPanel implements KeyListener{
+public class BattleSystem implements KeyListener{
 
 	private static final int PLAYER1_TURN = 1;
 	private static final int PLAYER2_TURN = 2;
@@ -26,8 +26,6 @@ public class BattleSystem extends JPanel implements KeyListener{
 		this.attKeys.add(new AttackingKey('s'));
 		this.attKeys.add(new AttackingKey('d'));
 		
-		this.addKeyListener(this);
-		this.setFocusable(true);
 	}
 	
 	public void setTurnState(int state) {
@@ -80,12 +78,14 @@ public class BattleSystem extends JPanel implements KeyListener{
 				if(turnState == PLAYER1_TURN) {
 					if(p2.isPlayerDead()) {		//p2 kalah
 						p2.playerDead();
+						// state berubah game selesai
 					}
 					this.setTurnState(PLAYER2_TURN);
 					
 				}else if(turnState == PLAYER2_TURN) {
 					if(p1.isPlayerDead()) {		//p1 kalah
 						p1.playerDead();
+						// state berubah game selesai
 					}
 					this.setTurnState(PLAYER1_TURN);
 				}
