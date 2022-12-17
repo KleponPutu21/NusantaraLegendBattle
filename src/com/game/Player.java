@@ -1,4 +1,4 @@
-package com.battleground;
+package com.game;
 
 import com.character.Character;
 import com.character.ArjunaStat;

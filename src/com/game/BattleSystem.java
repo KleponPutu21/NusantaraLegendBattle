@@ -1,4 +1,4 @@
-package com.battleground;
+package com.game;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

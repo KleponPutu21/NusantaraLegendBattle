@@ -1,4 +1,4 @@
-package com.battleground;
+package com.game;
 
 public class AttackingKey {
 
