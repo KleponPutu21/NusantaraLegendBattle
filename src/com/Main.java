@@ -16,7 +16,7 @@ public class Main {
 
 		GamePanel gamePanel = new GamePanel(720, 480);
 		frame.add(gamePanel);
-		
+
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);

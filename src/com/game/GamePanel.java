@@ -26,7 +26,8 @@ public class GamePanel extends JPanel implements Runnable{
 	private BattleSystem bs;
 	private ChooseCharacter Character1, Character2;
 	private Player player1, player2;
-	
+	private MainMenu menuPanel;
+
 	public GamePanel(int width, int height) {
 		
 		this.setPreferredSize(new Dimension(width, height));
@@ -35,7 +36,9 @@ public class GamePanel extends JPanel implements Runnable{
 		this.player1 = this.Character1.getPlayer();
 		this.player2 = this.Character2.getPlayer();
 		this.bs = new BattleSystem(player1, player2, this);
+		this.menuPanel = new MainMenu(this);
 		this.setBackground(Color.BLACK);
+		this.addKeyListener(menuPanel);
 		this.addKeyListener(bs);
 		this.addKeyListener(Character1);
 		this.addKeyListener(Character2);

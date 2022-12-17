@@ -4,6 +4,8 @@ import com.character.Character;
 
 import java.awt.Graphics;
 
+import javax.imageio.ImageIO;
+
 import com.character.ArjunaStat;
 import com.character.NyiRoroKidulStat;
 import com.character.PitungStat;
@@ -69,6 +71,7 @@ public class Player{
 		return false;
 	}
 	
+
 	//draw
 	public void avatarDraw(Graphics g) {
 		avatar.draw(g);
