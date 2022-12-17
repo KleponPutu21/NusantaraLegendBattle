@@ -25,15 +25,20 @@ public class MainMenu implements KeyListener {
     private List<MainMenuKey> selectingKey;
 
     public MainMenu(GamePanel gp){
-        selectedButton = playButton;
         this.gp = gp;
 
         this.selectingKey = new ArrayList<MainMenuKey>();
         this.selectingKey.add(new MainMenuKey(38));
         this.selectingKey.add(new MainMenuKey(40));
         this.selectingKey.add(new MainMenuKey(13));
+        
+        setDefaultMainMenu();
 
         setImageMainMenu();
+    }
+    
+    public void setDefaultMainMenu() {
+    	this.selectedButton = playButton;
     }
 
     public void setImageMainMenu(){
@@ -85,12 +90,22 @@ public class MainMenu implements KeyListener {
             e.printStackTrace();
         }
     }
+    
+    public void update() {
+    	
+    }
 
     public void draw(Graphics2D g2){
         
         g2.drawImage(bg_mainmenu, 0, 0, 640, 480, null);
-        g2.drawImage(play_button, 300, 200, 45, 45, null);
-        g2.drawImage(exit_button, 300, 270, 45, 45, null);
+        
+        if(selectedButton == playButton) {
+        	g2.drawImage(play_button, 300, 200, 50, 50, null);
+        	g2.drawImage(exit_button, 300, 270, 45, 45, null);
+        }else if(selectedButton == exitButton) {
+        	g2.drawImage(play_button, 300, 200, 45, 45, null);
+        	g2.drawImage(exit_button, 300, 270, 50, 50, null);
+        }
     }
  
 }
