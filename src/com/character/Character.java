@@ -4,22 +4,27 @@ import java.util.Random;
 
 public abstract class Character implements CharacterSkill{
 
+	//untuk draw karakter
 	public final static int DO_NOTHING = 0;
 	public final static int USING_ATTACK = 1;
 	public final static int USING_SKILL = 2;
 	public final static int USING_ULTIMATE = 4;
-	
-	protected int skillAnimationState;
 	protected int characterState;
+	
+	//untuk animasi skill
+	protected int skillAnimationState;
 	
 	private int healthPoint;
 	private int baseAttPoint;
+	private int manaPoint;
 	private Random rand = new Random();
 	
 	
-	public Character(int healthPoint, int baseAttPoint) {
+	public Character(int healthPoint, int baseAttPoint, int manaPoint) {
 		this.healthPoint = healthPoint;
 		this.baseAttPoint = baseAttPoint;
+		this.manaPoint = manaPoint;
+		this.characterState = DO_NOTHING;
 	}
 	
 	public int getHealthPoint() {
@@ -32,6 +37,10 @@ public abstract class Character implements CharacterSkill{
 	
 	public void setHealthPoint(int currHealthPoint) {
 		this.healthPoint = currHealthPoint;
+	}
+	
+	public void setCharacterState(int state) {
+		this.characterState = state;
 	}
 	
 	public int randExtraAtt(int a, int b) {

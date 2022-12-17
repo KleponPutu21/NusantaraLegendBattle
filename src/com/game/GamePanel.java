@@ -24,17 +24,21 @@ public class GamePanel extends JPanel implements Runnable{
 
 
 	private BattleSystem bs;
-	private ChooseCharacter p1, p2;
+	private ChooseCharacter Character1, Character2;
+	private Player player1, player2;
 	
 	public GamePanel(int width, int height) {
 		
 		this.setPreferredSize(new Dimension(width, height));
-		this.p1 = new ChooseCharacter();
-		this.p2 = new ChooseCharacter();
-		this.bs = new BattleSystem(p1.p, p2.p);
+		this.Character1 = new ChooseCharacter(this);
+		this.Character2 = new ChooseCharacter(this);
+		this.player1 = this.Character1.getPlayer();
+		this.player2 = this.Character2.getPlayer();
+		this.bs = new BattleSystem(player1, player2, this);
 		this.setBackground(Color.BLACK);
 		this.addKeyListener(bs);
-		this.addKeyListener(p1);
+		this.addKeyListener(Character1);
+		this.addKeyListener(Character2);
 
 		this.setFocusable(true);
 	}
@@ -80,5 +84,10 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	public void update(){
 
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
 	}
 }

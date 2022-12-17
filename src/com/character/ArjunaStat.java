@@ -8,11 +8,11 @@ public class ArjunaStat extends Character{
 	private final static int FIRE_ARROW = 1;
 	
 	
-	public ArjunaStat(int ArjunaHP, int ArjunaBaseAttPoint) {
-		super(ArjunaHP, ArjunaBaseAttPoint);
-		this.characterState = DO_NOTHING;
+	public ArjunaStat(int ArjunaHP, int ArjunaBaseAttPoint, int mp) {
+		super(ArjunaHP, ArjunaBaseAttPoint, mp);
 		//perlu ditambahi buat ngatur statenya
 	}
+	
 	
 
 	@Override
@@ -41,7 +41,20 @@ public class ArjunaStat extends Character{
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
-		
+		switch (this.characterState) {
+		case 0:
+			//Arjuna do nothing
+			break;
+		case 1:
+			//arjuna attack
+			break;
+		case 2:
+			//arjuna using skill
+			break;
+		case 3:
+			//arjuna using ultimate
+			break;
+		}
 	}
 
 

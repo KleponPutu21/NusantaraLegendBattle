@@ -5,8 +5,8 @@ import java.awt.Graphics;
 public class PitungStat extends Character{
 
 	
-	public PitungStat(int PitungHP, int PitungBaseAttPoint) {
-		super(PitungHP, PitungBaseAttPoint);
+	public PitungStat(int PitungHP, int PitungBaseAttPoint, int mp) {
+		super(PitungHP, PitungBaseAttPoint, mp);
 	}
 
 	@Override
