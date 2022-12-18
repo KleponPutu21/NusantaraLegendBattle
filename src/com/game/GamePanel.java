@@ -38,6 +38,7 @@ public class GamePanel extends JPanel implements Runnable{
 		this.bs = new BattleSystem(player1, player2, this);
 		this.menuPanel = new MainMenu(this);
 		this.setBackground(Color.BLACK);
+		this.setDoubleBuffered(true);
 		this.addKeyListener(menuPanel);
 		this.addKeyListener(bs);
 		this.addKeyListener(Character1);
@@ -86,7 +87,7 @@ public class GamePanel extends JPanel implements Runnable{
 	}
 	
 	public void update(){
-		
+		menuPanel.update();
 	}
 	
 	public void paintComponent(Graphics g) {
