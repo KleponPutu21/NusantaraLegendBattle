@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -21,6 +22,7 @@ public class MainMenu implements KeyListener {
     private final int playButton = 1;
     private final int exitButton = 2;
     private int selectedButton;
+    private int buttonState;
 
     private List<MainMenuKey> selectingKey;
 
@@ -31,6 +33,7 @@ public class MainMenu implements KeyListener {
         this.selectingKey.add(new MainMenuKey(38));
         this.selectingKey.add(new MainMenuKey(40));
         this.selectingKey.add(new MainMenuKey(13));
+      
         
         setDefaultMainMenu();
 
@@ -38,7 +41,7 @@ public class MainMenu implements KeyListener {
     }
     
     public void setDefaultMainMenu() {
-    	this.selectedButton = playButton;
+    	this.buttonState = playButton;
     }
 
     public void setImageMainMenu(){
@@ -92,19 +95,22 @@ public class MainMenu implements KeyListener {
     }
     
     public void update() {
-    	
+    	this.buttonState = selectedButton;
     }
 
     public void draw(Graphics2D g2){
         
         g2.drawImage(bg_mainmenu, 0, 0, 640, 480, null);
         
-        if(selectedButton == playButton) {
+        if(this.buttonState == playButton) {
         	g2.drawImage(play_button, 300, 200, 50, 50, null);
         	g2.drawImage(exit_button, 300, 270, 45, 45, null);
-        }else if(selectedButton == exitButton) {
+        }else if(this.buttonState == exitButton) {
         	g2.drawImage(play_button, 300, 200, 45, 45, null);
         	g2.drawImage(exit_button, 300, 270, 50, 50, null);
+        }else {
+        	g2.drawImage(play_button, 300, 200, 50, 50, null);
+        	g2.drawImage(exit_button, 300, 270, 45, 45, null);
         }
     }
  
