@@ -22,7 +22,7 @@ public class ChooseCharacter implements KeyListener{
 
     private GamePanel gp;
 
-    public ChooseCharacter(GamePanel gp){
+    public ChooseCharacter(GamePanel gp) {
         //selectedCharacter = leftCharacter;
         this.gp = gp;
 

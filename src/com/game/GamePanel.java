@@ -26,24 +26,26 @@ public class GamePanel extends JPanel implements Runnable{
 	private ChooseCharacter Character;
 	private Player player1, player2;
 	private MainMenu menuPanel;
+	private EndGame endGame;
 
 	public GamePanel(int width, int height) {
 		
 		this.setPreferredSize(new Dimension(width, height));
 		this.Character = new ChooseCharacter(this);
 		this.menuPanel = new MainMenu(this);
+		this.endGame = new EndGame(this);
 		this.setBackground(Color.BLACK);
 		this.setDoubleBuffered(true);
 		this.addKeyListener(menuPanel);
 		this.addKeyListener(bs);
 		this.addKeyListener(Character);
+		this.addKeyListener(endGame);
 
 		this.setFocusable(true);
 		this.setPlayerState = notSettled;
 	}
 	
 	public void setupGame() {
-				
 		gameState = mainMenuState;
 	}
 	
@@ -109,6 +111,9 @@ public class GamePanel extends JPanel implements Runnable{
 			}
 			bs.update();
 		}
+		if(this.gameState == endGameState) {
+			endGame.update();
+		}
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -127,6 +132,9 @@ public class GamePanel extends JPanel implements Runnable{
 		}
 		if(this.gameState == battleState) {
 			bs.draw(g2);
+		}
+		if(this.gameState == endGameState) {
+			endGame.draw(g2);
 		}
 		
 		g2.dispose();
