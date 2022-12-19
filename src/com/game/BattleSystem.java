@@ -36,10 +36,17 @@ public class BattleSystem implements KeyListener{
 		this.attKeys.add(new AttackingKey('s'));
 		this.attKeys.add(new AttackingKey('d'));
 		
+		setImageBattle();
 	}
 	
 	public void setTurnState(int state) {
 		this.turnState = state;
+	}
+	
+	public void setImageBattle() {
+		if(gp.gameState == gp.battleState) {
+			getImageBattle();
+		}
 	}
 
 	public void getImageBattle(){
@@ -49,6 +56,10 @@ public class BattleSystem implements KeyListener{
             e.printStackTrace();
         }
     }
+	
+	public void update() {
+		setImageBattle();
+	}
 	
 	public void draw(Graphics2D g2) {
 		g2.drawImage(bg_battle, 0, 0, 640, 480, null);

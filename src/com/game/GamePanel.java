@@ -107,6 +107,7 @@ public class GamePanel extends JPanel implements Runnable{
 				setBattleSystem();
 				this.setPlayerState = done;
 			}
+			bs.update();
 		}
 	}
 	
@@ -123,6 +124,9 @@ public class GamePanel extends JPanel implements Runnable{
 		}
 		if(this.gameState == selectCharacterPlayer2State) {
 			Character.draw(g2);
+		}
+		if(this.gameState == battleState) {
+			bs.draw(g2);
 		}
 		
 	}
