@@ -5,6 +5,12 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.awt.Color;
+import java.awt.Graphics2D;
+
 import javax.swing.JPanel;
 
 public class BattleSystem implements KeyListener{
@@ -16,6 +22,8 @@ public class BattleSystem implements KeyListener{
 	private List<AttackingKey> attKeys;
 	private int turnState;
 	private GamePanel gp;
+
+	public BufferedImage bg_battle;
 	
 	public BattleSystem(Player p1, Player p2, GamePanel gp) {
 		this.p1 = p1;
@@ -33,22 +41,27 @@ public class BattleSystem implements KeyListener{
 	public void setTurnState(int state) {
 		this.turnState = state;
 	}
+
+	public void getImageBattle(){
+        try {
+            bg_battle = ImageIO.read(getClass().getResourceAsStream("/battle-panel/battle_background.png"));
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 	
-	public void draw() {
-		
+	public void draw(Graphics2D g2) {
+		g2.drawImage(bg_battle, 0, 0, 640, 480, null);
 	}
-	
 	
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
 		char key = e.getKeyChar();
 		
 		if(gp.gameState == gp.battleState) {
@@ -80,7 +93,6 @@ public class BattleSystem implements KeyListener{
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
 		char key = e.getKeyChar();
 		
 		if(gp.gameState == gp.battleState) {
