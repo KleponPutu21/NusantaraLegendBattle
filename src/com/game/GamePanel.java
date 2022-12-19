@@ -4,9 +4,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 import javax.swing.JPanel;
 
@@ -21,27 +18,28 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int selectCharacterPlayer2State = 2;
 	public final int battleState = 3;
 	public final int endGameState = 4;
-
+	public int setPlayerState;
+	public final int notSettled = 0;
+	public final int done = 1;
 
 	private BattleSystem bs;
-	private ChooseCharacter Character1, Character2;
+	private ChooseCharacter Character;
 	private Player player1, player2;
 	private MainMenu menuPanel;
 
 	public GamePanel(int width, int height) {
 		
 		this.setPreferredSize(new Dimension(width, height));
-		this.Character1 = new ChooseCharacter(this);
-		//this.Character2 = new ChooseCharacter(this);
+		this.Character = new ChooseCharacter(this);
 		this.menuPanel = new MainMenu(this);
 		this.setBackground(Color.BLACK);
 		this.setDoubleBuffered(true);
 		this.addKeyListener(menuPanel);
 		this.addKeyListener(bs);
-		this.addKeyListener(Character1);
-		//this.addKeyListener(Character2);
+		this.addKeyListener(Character);
 
 		this.setFocusable(true);
+		this.setPlayerState = notSettled;
 	}
 	
 	public void setupGame() {
@@ -50,8 +48,9 @@ public class GamePanel extends JPanel implements Runnable{
 	}
 	
 	public void setPlayer(){
-		this.player1 = this.Character1.getPlayer();
-		this.player2 = this.Character2.getPlayer();
+		this.player1 = this.Character.getPlayer1();
+		this.player2 = this.Character.getPlayer2();
+		System.out.println("udah pilih character");
 	}
 	
 	public void setBattleSystem() {
@@ -97,16 +96,17 @@ public class GamePanel extends JPanel implements Runnable{
 			menuPanel.update();
 		}
 		if(this.gameState == selectCharacterPlayer1State) {
-			//this.Character1 = new ChooseCharacter(this);
-			//this.addKeyListener(Character1);
-			Character1.update();
+			Character.update();
 		}
 		if(this.gameState == selectCharacterPlayer2State) {
-			//Character1.update();
+			Character.update();
 		}
 		if(this.gameState == battleState) {
-			setPlayer();
-			setBattleSystem();
+			if(this.setPlayerState == notSettled){
+				setPlayer();
+				setBattleSystem();
+				this.setPlayerState = done;
+			}
 		}
 	}
 	
@@ -119,10 +119,10 @@ public class GamePanel extends JPanel implements Runnable{
 			menuPanel.draw(g2);
 		}
 		if(this.gameState == selectCharacterPlayer1State) {
-			Character1.draw(g2);
+			Character.draw(g2);
 		}
 		if(this.gameState == selectCharacterPlayer2State) {
-			//Character2.draw(g2);
+			Character.draw(g2);
 		}
 		
 	}

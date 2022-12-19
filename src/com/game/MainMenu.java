@@ -24,19 +24,10 @@ public class MainMenu implements KeyListener {
     private int selectedButton;
     private int buttonState;
 
-    private List<MainMenuKey> selectingKey;
-
     public MainMenu(GamePanel gp){
         this.gp = gp;
-
-        this.selectingKey = new ArrayList<MainMenuKey>();
-        this.selectingKey.add(new MainMenuKey(38));
-        this.selectingKey.add(new MainMenuKey(40));
-        this.selectingKey.add(new MainMenuKey(13));
-      
-        
+    
         setDefaultMainMenu();
-
         setImageMainMenu();
     }
     
@@ -52,33 +43,14 @@ public class MainMenu implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
         
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        // TODO Auto-generated method stub
         int key = e.getKeyCode();
 
         if(gp.gameState == gp.mainMenuState) {
-            //for(MainMenuKey mk : this.selectingKey){
-          //      if(mk.isCodeMatch(key) && key == 38){
-                 //   selectedButton = playButton;
-               //     System.out.println("up pressed");
-             //   } else if(mk.isCodeMatch(key) && key == 40){
-                    //selectedButton = exitButton;
-                  //  System.out.println("down pressed");
-                //} else if(key == e.VK_ENTER){
-              //      if(selectedButton == playButton){
-                       // gp.gameState = gp.selectCharacterPlayer1State;
-                     //   System.out.println("enter menu");
-                   // } else if(selectedButton == exitButton){
-                 //       System.exit(0);   
-               //     }
-                    
-             //   }
-           // }
         	if(key == e.VK_UP) {
         		selectedButton = playButton;
         		System.out.println("up pressed");
@@ -98,7 +70,6 @@ public class MainMenu implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        // TODO Auto-generated method stub
         
     }
     

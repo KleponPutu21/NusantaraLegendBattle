@@ -2,8 +2,6 @@ package com.game;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -11,29 +9,22 @@ import java.io.IOException;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import javax.lang.model.util.ElementScanner14;
 
 public class ChooseCharacter implements KeyListener{
 
-    public BufferedImage bg_ch_player1, arjuna_card, nyirorokidul_card;
+    public BufferedImage bg_ch_player1, bg_ch_player2, arjuna_card, nyirorokidul_card;
 
-    public Player p;
+    public Player p1, p2;
 
     private final int leftCharacter = 1;
     private final int rightCharacter = 2;
     private int selectedCharacter = 0;
 
-    private List<ChooseKey> choosingKey;
     private GamePanel gp;
 
     public ChooseCharacter(GamePanel gp){
         //selectedCharacter = leftCharacter;
         this.gp = gp;
-        
-        this.choosingKey = new ArrayList<ChooseKey>();
-        this.choosingKey.add(new ChooseKey(37));
-        this.choosingKey.add(new ChooseKey(39));
-        this.choosingKey.add(new ChooseKey(13));
 
         //setImageCHPlayer();
     }
@@ -41,20 +32,31 @@ public class ChooseCharacter implements KeyListener{
     public void setPlayer1(){
     	switch(selectedCharacter) {
     	case 1:
-    		this.p = new Player(leftCharacter);
+    		this.p1 = new Player(leftCharacter);
     		break;
     	case 2:
-    		this.p = new Player(rightCharacter);
+    		this.p1 = new Player(rightCharacter);
     		break;
     	}
     }
     
     public void setPlayer2() {
-    	
+        switch(selectedCharacter) {
+            case 1:
+                this.p2 = new Player(leftCharacter);
+                break;
+            case 2:
+                this.p2 = new Player(rightCharacter);
+                break;
+            }
     }
 
-    public Player getPlayer(){
-        return p;
+    public Player getPlayer1(){
+        return p1;
+    }
+
+    public Player getPlayer2(){
+        return p2;
     }
 
     public void setImageCHPlayer(){
@@ -64,26 +66,14 @@ public class ChooseCharacter implements KeyListener{
     }
     @Override
     public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
         
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        // TODO Auto-generated method stub
         int key = e.getKeyCode();
         
         if(gp.gameState == gp.selectCharacterPlayer1State || gp.gameState == gp.selectCharacterPlayer2State) {
-        	//for(ChooseKey ch : this.choosingKey){
-                //if(ch.isCodeMatch(key) && key == 37){
-                  //  selectedCharacter = leftCharacter;
-                //} else if(ch.isCodeMatch(key) && key == 39){
-                  //  selectedCharacter = rightCharacter;
-                //} else if(ch.isCodeMatch(key) && key == 13){
-                  //  p = new Player(selectedCharacter);
-                //    p.setKarakter();
-              //  }
-            //}
         	if(key == e.VK_RIGHT) {
         		this.selectedCharacter = rightCharacter;
         		System.out.println("right");
@@ -94,11 +84,13 @@ public class ChooseCharacter implements KeyListener{
         	}
         	else if(key == e.VK_SPACE) {
         		if(gp.gameState == gp.selectCharacterPlayer1State) {
+                    setPlayer1();
         			gp.gameState = gp.selectCharacterPlayer2State;
-        			System.out.println("enter");
+        			System.out.println("player 1 udah pilih character");
         		}else if(gp.gameState == gp.selectCharacterPlayer2State) {
+                    setPlayer2();
         			gp.gameState = gp.battleState;
-        			System.out.println("enter");
+        			System.out.println("player 2 udah pilih character");
         		}
         		//System.out.println("enter");
         	}
@@ -112,13 +104,13 @@ public class ChooseCharacter implements KeyListener{
 
     @Override
     public void keyReleased(KeyEvent e) {
-        // TODO Auto-generated method stub
         
     }
 
     public void getImageCHPlayer(){
         try {
             bg_ch_player1 = ImageIO.read(getClass().getResourceAsStream("/choose-character/choose_character_player1.png"));
+            bg_ch_player2 = ImageIO.read(getClass().getResourceAsStream("/choose-character/choose_character_player2.png"));
             arjuna_card = ImageIO.read(getClass().getResourceAsStream("/choose-character/arjuna_character_card.png"));
             nyirorokidul_card = ImageIO.read(getClass().getResourceAsStream("/choose-character/nyirorokidul_character_card.png"));
         } catch (IOException e){
@@ -131,7 +123,12 @@ public class ChooseCharacter implements KeyListener{
     }
 
     public void draw(Graphics2D g2){
-        g2.drawImage(bg_ch_player1, 0, 0, 640, 480, null);
+        if(gp.gameState == gp.selectCharacterPlayer1State ){
+            g2.drawImage(bg_ch_player1, 0, 0, 640, 480, null);
+        } else if(gp.gameState == gp.selectCharacterPlayer2State){
+            g2.drawImage(bg_ch_player2, 0, 0, 640, 480, null);
+        }
+        
         g2.drawImage(arjuna_card, 100, 140, 180, 255, null);
         g2.drawImage(nyirorokidul_card, 400, 140, 180, 255, null);
         
