@@ -32,17 +32,14 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		this.setPreferredSize(new Dimension(width, height));
 		this.Character1 = new ChooseCharacter(this);
-		this.Character2 = new ChooseCharacter(this);
-		this.player1 = this.Character1.getPlayer();
-		this.player2 = this.Character2.getPlayer();
-		this.bs = new BattleSystem(player1, player2, this);
+		//this.Character2 = new ChooseCharacter(this);
 		this.menuPanel = new MainMenu(this);
 		this.setBackground(Color.BLACK);
 		this.setDoubleBuffered(true);
 		this.addKeyListener(menuPanel);
 		this.addKeyListener(bs);
 		this.addKeyListener(Character1);
-		this.addKeyListener(Character2);
+		//this.addKeyListener(Character2);
 
 		this.setFocusable(true);
 	}
@@ -50,6 +47,15 @@ public class GamePanel extends JPanel implements Runnable{
 	public void setupGame() {
 				
 		gameState = mainMenuState;
+	}
+	
+	public void setPlayer(){
+		this.player1 = this.Character1.getPlayer();
+		this.player2 = this.Character2.getPlayer();
+	}
+	
+	public void setBattleSystem() {
+		this.bs = new BattleSystem(player1, player2, this);
 	}
 
 	public void startGameThread(){
@@ -87,7 +93,21 @@ public class GamePanel extends JPanel implements Runnable{
 	}
 	
 	public void update(){
-		menuPanel.update();
+		if(this.gameState == mainMenuState) {
+			menuPanel.update();
+		}
+		if(this.gameState == selectCharacterPlayer1State) {
+			//this.Character1 = new ChooseCharacter(this);
+			//this.addKeyListener(Character1);
+			Character1.update();
+		}
+		if(this.gameState == selectCharacterPlayer2State) {
+			//Character1.update();
+		}
+		if(this.gameState == battleState) {
+			setPlayer();
+			setBattleSystem();
+		}
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -95,6 +115,15 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		Graphics2D g2 = (Graphics2D)g;
 		
-		menuPanel.draw(g2);
+		if(this.gameState == mainMenuState) {
+			menuPanel.draw(g2);
+		}
+		if(this.gameState == selectCharacterPlayer1State) {
+			Character1.draw(g2);
+		}
+		if(this.gameState == selectCharacterPlayer2State) {
+			//Character2.draw(g2);
+		}
+		
 	}
 }

@@ -62,19 +62,37 @@ public class MainMenu implements KeyListener {
         int key = e.getKeyCode();
 
         if(gp.gameState == gp.mainMenuState) {
-            for(MainMenuKey mk : this.selectingKey){
-                if(mk.isCodeMatch(key) && key == 38){
-                    selectedButton = playButton;
-                } else if(mk.isCodeMatch(key) && key == 40){
-                    selectedButton = exitButton;
-                } else if(mk.isCodeMatch(key) && key == 13){
-                    if(selectedButton == playButton){
-                        gp.gameState = gp.selectCharacterPlayer1State;
-                    } else if(selectedButton == exitButton){
-                        System.exit(0);   
-                    }
-                }
-            }
+            //for(MainMenuKey mk : this.selectingKey){
+          //      if(mk.isCodeMatch(key) && key == 38){
+                 //   selectedButton = playButton;
+               //     System.out.println("up pressed");
+             //   } else if(mk.isCodeMatch(key) && key == 40){
+                    //selectedButton = exitButton;
+                  //  System.out.println("down pressed");
+                //} else if(key == e.VK_ENTER){
+              //      if(selectedButton == playButton){
+                       // gp.gameState = gp.selectCharacterPlayer1State;
+                     //   System.out.println("enter menu");
+                   // } else if(selectedButton == exitButton){
+                 //       System.exit(0);   
+               //     }
+                    
+             //   }
+           // }
+        	if(key == e.VK_UP) {
+        		selectedButton = playButton;
+        		System.out.println("up pressed");
+        	} else if(key == e.VK_DOWN) {
+        		selectedButton = exitButton;
+        		System.out.println("down pressed");
+        	} else if(key == e.VK_ENTER) {
+        		if(selectedButton == playButton) {
+        			gp.gameState = gp.selectCharacterPlayer1State;
+        			System.out.println("enter from menu");
+        		}else if(selectedButton == exitButton) {
+        			System.exit(0);
+        		}
+        	}
         }
     }
 
