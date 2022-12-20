@@ -67,6 +67,10 @@ public class Player{
 		avatar.attUltimateSkill(p.avatar);
 		avatar.setCharacterState(USING_ULTIMATE);
 	}
+	
+	public int getPlayerHealth() {
+		return(avatar.getHealthPoint());
+	}
 
 	public void playerDead() {
 		if(avatar.getHealthPoint() == 0) {
@@ -75,7 +79,7 @@ public class Player{
 	}
 	
 	public boolean isPlayerDead() {
-		if(avatar.getHealthPoint() == 0) return true;
+		if(avatar.getHealthPoint() <= 0) return true;
 		return false;
 	}
 	

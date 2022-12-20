@@ -18,6 +18,8 @@ public class ArjunaStat extends Character{
 	
 	public BufferedImage arjunaP1Idle1, arjunaP1Idle2;
 	public BufferedImage arjunaP2Idle1, arjunaP2Idle2;
+	public BufferedImage arjunaP1Attack1, arjunaP1Attack2;
+	public BufferedImage arjunaP2Attack1, arjunaP2Attck2;
 	
 	private int playerPos;
 	private final int p1 = 1;
@@ -40,25 +42,25 @@ public class ArjunaStat extends Character{
 	}
 
 	@Override
-	public void attBasicAttack(Character c) {
+	public void attBasicAttack(Character enemy) {
 		// TODO Auto-generated method stub
-		c.setHealthPoint(c.getHealthPoint() - this.getbaseAttPoint());
+		enemy.setHealthPoint(enemy.getHealthPoint() - this.getbaseAttPoint());
 	}
 
 	@Override
-	public void attSkill(Character c) {
+	public void attSkill(Character enemy) {
 		// TODO Auto-generated method stub
 		// 120 - 150
 		int att = this.getbaseAttPoint() + this.randExtraAtt(20, 30);
-		c.setHealthPoint(c.getHealthPoint() - att);
+		enemy.setHealthPoint(enemy.getHealthPoint() - att);
 	}
 
 	@Override
-	public void attUltimateSkill(Character c) {
+	public void attUltimateSkill(Character enemy) {
 		// TODO Auto-generated method stub
 		// 160 - 200
 		int att = this.getbaseAttPoint() + this.randExtraAtt(60, 40);
-		c.setHealthPoint(c.getHealthPoint() - att);
+		enemy.setHealthPoint(enemy.getHealthPoint() - att);
 	}
 	
 	public void getImageArjuna() {

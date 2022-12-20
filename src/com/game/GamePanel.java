@@ -36,8 +36,10 @@ public class GamePanel extends JPanel implements Runnable{
 		this.endGame = new EndGame(this);
 		this.setBackground(Color.BLACK);
 		this.setDoubleBuffered(true);
+		//setPlayer();
+		//setBattleSystem();
 		this.addKeyListener(menuPanel);
-		this.addKeyListener(bs);
+		//this.addKeyListener(bs);
 		this.addKeyListener(Character);
 		this.addKeyListener(endGame);
 
@@ -52,11 +54,13 @@ public class GamePanel extends JPanel implements Runnable{
 	public void setPlayer(){
 		this.player1 = this.Character.getPlayer1();
 		this.player2 = this.Character.getPlayer2();
-		System.out.println("udah pilih character");
+		//System.out.println("udah pilih character");
 	}
 	
 	public void setBattleSystem() {
-		this.bs = new BattleSystem(player1, player2, this);
+		this.bs = new BattleSystem(this.player1, this.player2, this);
+		this.addKeyListener(bs);
+		//System.out.println("battle start");
 	}
 
 	public void startGameThread(){

@@ -5,11 +5,11 @@ import java.awt.Graphics2D;
 
 public interface CharacterSkill {
 
-	public void attBasicAttack(Character c); // basic Attack
+	public void attBasicAttack(Character enemy); // basic Attack
 	
-	public void attSkill(Character c); // Skill 1
+	public void attSkill(Character enemy); // Skill 1
 	
-	public void attUltimateSkill(Character c); //Skill 2
+	public void attUltimateSkill(Character enemy); //Skill 2
 	
 	public void draw(Graphics2D g2);
 	
