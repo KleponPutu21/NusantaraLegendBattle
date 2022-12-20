@@ -32,23 +32,27 @@ public class ChooseCharacter implements KeyListener{
     public void setPlayer1(){
     	switch(selectedCharacter) {
     	case 1:
-    		this.p1 = new Player(leftCharacter);
+    		this.p1 = new Player(leftCharacter, 1);
+    		//System.out.println("player 1 is arjuna");
     		break;
     	case 2:
-    		this.p1 = new Player(rightCharacter);
+    		this.p1 = new Player(rightCharacter, 1);
+    		//System.out.println("player 1 is nyi roro kidul");
     		break;
     	}
     }
     
     public void setPlayer2() {
-        switch(selectedCharacter) {
-            case 1:
-                this.p2 = new Player(leftCharacter);
-                break;
-            case 2:
-                this.p2 = new Player(rightCharacter);
-                break;
-            }
+    	switch(selectedCharacter) {
+    	case 1:
+    		this.p2 = new Player(leftCharacter, 2);
+    		//System.out.println("player 2 is arjuna");
+    		break;
+    	case 2:
+    		this.p2 = new Player(rightCharacter, 2);
+    		//System.out.println("player 2 is nyi roro kidul");
+    		break;
+    	}
     }
 
     public Player getPlayer1(){

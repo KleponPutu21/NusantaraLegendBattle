@@ -129,5 +129,7 @@ public class GamePanel extends JPanel implements Runnable{
 			bs.draw(g2);
 		}
 		
+		g2.dispose();
+		
 	}
 }

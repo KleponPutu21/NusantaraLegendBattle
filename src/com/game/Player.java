@@ -3,12 +3,12 @@ package com.game;
 import com.character.Character;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import javax.imageio.ImageIO;
 
 import com.character.ArjunaStat;
 import com.character.NyiRoroKidulStat;
-import com.character.PitungStat;
 import com.character.CharacterSkill;
 
 public class Player{
@@ -26,20 +26,28 @@ public class Player{
 	
 	private int characterCode;
 	private int playerStatus;
+	
+	private int playerPos;
+	private final int p1 = 1;
+	private final int p2 = 2;
+	
 	Character avatar;
 	
-	public Player(int cCode) {
+	public Player(int cCode, int playerPos) {
 		this.characterCode = cCode;
+		this.playerPos = playerPos;
 		this.playerStatus = ALIVE;
+		setKarakter();
 	}
 	
 	public void setKarakter() {
 		switch(this.characterCode) {
 		case 1:
-			this.avatar = new NyiRoroKidulStat(defaultHP, defaultAP, defaultMP);
+			this.avatar = new ArjunaStat(defaultHP, defaultAP, defaultMP, playerPos);
 			break;
 		case 2:
-			this.avatar = new ArjunaStat(defaultHP, defaultAP, defaultMP);
+			this.avatar = new NyiRoroKidulStat(defaultHP, defaultAP, defaultMP, playerPos);
+			break;
 		}
 		avatar.setCharacterState(DO_NOTHING);
 		
@@ -73,8 +81,8 @@ public class Player{
 	
 
 	//draw
-	public void avatarDraw(Graphics g) {
-		avatar.draw(g);
+	public void avatarDraw(Graphics2D g2) {
+		avatar.draw(g2);
 	}
 	
 }

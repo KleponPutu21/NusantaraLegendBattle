@@ -63,6 +63,11 @@ public class BattleSystem implements KeyListener{
 	
 	public void draw(Graphics2D g2) {
 		g2.drawImage(bg_battle, 0, 0, 640, 480, null);
+		p1.avatarDraw(g2);
+		p2.avatarDraw(g2);
+		g2.setColor(Color.WHITE);
+		g2.fillRect(60, 40, 200, 10);
+		g2.fillRect(400, 40, 200, 10);
 	}
 	
 
