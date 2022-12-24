@@ -126,6 +126,4 @@ public class ArjunaStat extends Character{
 		}
 	}
 	
-	
-	
 }

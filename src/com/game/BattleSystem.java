@@ -11,14 +11,12 @@ import java.io.IOException;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import javax.swing.JPanel;
-
 public class BattleSystem implements KeyListener{
 
 	private static int PLAYER1_TURN = 1;
 	private static int PLAYER2_TURN = 2;
 	
-	private Player p1, p2;
+	public Player p1, p2;
 	private List<AttackingKey> attKeys;
 	private int turnState;
 	private GamePanel gp;

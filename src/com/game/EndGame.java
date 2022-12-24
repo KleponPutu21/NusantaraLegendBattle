@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.awt.Graphics2D;
 
 public class EndGame implements KeyListener{
-    public BufferedImage bg_endgame;
+    public BufferedImage player1_win, player2_win;
 
     private GamePanel gp;
 
     public EndGame(GamePanel gp) {
         this.gp = gp;
     }
-
+    
     @Override
     public void keyTyped(KeyEvent e) {
         
@@ -50,7 +50,8 @@ public class EndGame implements KeyListener{
     }
     public void getImageEndGame(){
         try {
-            bg_endgame = ImageIO.read(getClass().getResourceAsStream("/end-game/endgame_background.png"));
+            player1_win = ImageIO.read(getClass().getResourceAsStream("/end-game/endgame_player1win.png"));
+            player2_win = ImageIO.read(getClass().getResourceAsStream("/end-game/endgame_player2win.png"));
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -61,7 +62,7 @@ public class EndGame implements KeyListener{
     }
     public void draw(Graphics2D g2){
         if(gp.gameState == gp.endGameState){
-            g2.drawImage(bg_endgame, 0, 0, 640, 480, null);
+            g2.drawImage(player1_win, 0, 0, 640, 480, null);
         }
     }
 }
