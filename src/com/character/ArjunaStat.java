@@ -53,6 +53,7 @@ public class ArjunaStat extends Character{
 		// 120 - 150
 		int att = this.getbaseAttPoint() + this.randExtraAtt(20, 30);
 		enemy.setHealthPoint(enemy.getHealthPoint() - att);
+		this.setManaPoint(this.getManaPoint() - 100);
 	}
 
 	@Override
@@ -61,6 +62,7 @@ public class ArjunaStat extends Character{
 		// 160 - 200
 		int att = this.getbaseAttPoint() + this.randExtraAtt(60, 40);
 		enemy.setHealthPoint(enemy.getHealthPoint() - att);
+		this.setManaPoint(this.getManaPoint() - 150);
 	}
 	
 	public void getImageArjuna() {

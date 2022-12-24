@@ -48,6 +48,7 @@ public class NyiRoroKidulStat extends Character{
 	public void attSkill(Character c) {
 		int att = this.getbaseAttPoint() + this.randExtraAtt(20, 30);
 		c.setHealthPoint(c.getHealthPoint() - att);
+		this.setManaPoint(this.getManaPoint() - 100);
 	}
 
 	@Override
@@ -55,6 +56,7 @@ public class NyiRoroKidulStat extends Character{
 		// TODO Auto-generated method stub
 		int att = this.getbaseAttPoint() + this.randExtraAtt(60, 40);
 		c.setHealthPoint(c.getHealthPoint() - att);
+		this.setManaPoint(this.getManaPoint() - 150);
 	}
 
 	public void getImageNyirorokidul() {

@@ -24,6 +24,11 @@ public class Player{
 	private final static int USING_SKILL = 2;
 	private final static int USING_ULTIMATE = 3;
 	
+	//untuk penggunaan skil, sukses atau tidak
+		public int successSkillState, successUltimateState;
+		public final int success = 1;
+		public final int unSuccess = 0;
+	
 	private int characterCode;
 	private int playerStatus;
 	
@@ -37,6 +42,8 @@ public class Player{
 		this.characterCode = cCode;
 		this.playerPos = playerPos;
 		this.playerStatus = ALIVE;
+		this.successSkillState = unSuccess;
+		this.successUltimateState = unSuccess;
 		setKarakter();
 	}
 	
@@ -68,8 +75,42 @@ public class Player{
 		avatar.setCharacterState(USING_ULTIMATE);
 	}
 	
+	public void setSuccessSkillState() {
+		if(this.successSkillState == success) {
+			this.successSkillState = unSuccess;
+		}else if(this.successSkillState == unSuccess) {
+			this.successSkillState = success;
+		}
+	}
+	
+	public boolean isSkillSuccess() {
+		if(this.successSkillState == success) {
+			return true;
+		}
+		return false;
+	}
+	
+	public void setSuccessUltimateState() {
+		if(this.successUltimateState == success) {
+			this.successUltimateState = unSuccess;
+		}else if(this.successUltimateState == unSuccess) {
+			this.successUltimateState = success;
+		}
+	}
+	
+	public boolean isUltimateSuccess() {
+		if(this.successUltimateState == success) {
+			return true;
+		}
+		return false;
+	}
+	
 	public int getPlayerHealth() {
 		return(avatar.getHealthPoint());
+	}
+	
+	public int getPlayerMana() {
+		return(avatar.getManaPoint());
 	}
 
 	public void playerDead() {

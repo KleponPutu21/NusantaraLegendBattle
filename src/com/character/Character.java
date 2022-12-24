@@ -35,8 +35,16 @@ public abstract class Character implements CharacterSkill{
 		return this.baseAttPoint;
 	}
 	
+	public int getManaPoint() {
+		return this.manaPoint;
+	}
+	
 	public void setHealthPoint(int currHealthPoint) {
 		this.healthPoint = currHealthPoint;
+	}
+	
+	public void setManaPoint(int currManaPoint) {
+		this.manaPoint = currManaPoint;
 	}
 	
 	public void setCharacterState(int state) {
