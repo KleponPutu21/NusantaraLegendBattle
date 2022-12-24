@@ -73,7 +73,7 @@ public class Player{
 	}
 
 	public void playerDead() {
-		if(avatar.getHealthPoint() == 0) {
+		if(avatar.getHealthPoint() <= 0) {
 			this.playerStatus = DEAD;
 		}
 	}

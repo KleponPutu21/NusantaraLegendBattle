@@ -10,12 +10,15 @@ import java.awt.Graphics2D;
 
 public class EndGame implements KeyListener{
     public BufferedImage player1_win, player2_win;
+    private int winState, p1Win = 1, p2Win = 2;
 
     private GamePanel gp;
 
-    public EndGame(GamePanel gp) {
+    public EndGame(GamePanel gp, int winState) {
         this.gp = gp;
+        this.winState = winState;
     }
+
     
     @Override
     public void keyTyped(KeyEvent e) {
@@ -62,7 +65,12 @@ public class EndGame implements KeyListener{
     }
     public void draw(Graphics2D g2){
         if(gp.gameState == gp.endGameState){
-            g2.drawImage(player1_win, 0, 0, 640, 480, null);
+            if(winState == p1Win){
+                g2.drawImage(player1_win, 0, 0, 640, 480, null);
+            } else if(winState == p2Win){
+                g2.drawImage(player2_win, 0, 0, 640, 480, null);
+            }
+            
         }
     }
 }

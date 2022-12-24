@@ -18,7 +18,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int selectCharacterPlayer2State = 2;
 	public final int battleState = 3;
 	public final int endGameState = 4;
-	public int setPlayerState;
+	public int setPlayerState, setEndGameState;
 	public final int notSettled = 0;
 	public final int done = 1;
 
@@ -43,6 +43,7 @@ public class GamePanel extends JPanel implements Runnable{
 
 		this.setFocusable(true);
 		this.setPlayerState = notSettled;
+		this.setEndGameState = notSettled;
 	}
 	
 	public void setupGame() {
@@ -62,9 +63,10 @@ public class GamePanel extends JPanel implements Runnable{
 	}
 
 	public void setEndGame(){
-		this.endGame = new EndGame(this);
+		this.endGame = new EndGame(this, bs.setWinner());
 		this.addKeyListener(endGame);
 	}
+
 	public void startGameThread(){
 		gameThread = new Thread(this);
 		gameThread.start();
@@ -118,10 +120,10 @@ public class GamePanel extends JPanel implements Runnable{
 			bs.update();
 		}
 		if(this.gameState == endGameState) {
-			// if(bs.p1.isPlayerDead()){
-			// 	endGame.update();
-			// 	//player 2 menang;
-			// } 
+			if(this.setEndGameState == notSettled){
+				setEndGame();
+				this.setEndGameState = done;
+			} 
 			endGame.update();
 		}
 	}

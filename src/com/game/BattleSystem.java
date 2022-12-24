@@ -81,6 +81,16 @@ public class BattleSystem implements KeyListener{
             e.printStackTrace();
         }
     }
+
+	public int setWinner(){
+		if(p1.isPlayerDead()){
+			return 2;
+		}
+		else if(p2.isPlayerDead()){
+			return 1;
+		}
+		return 0;
+	}
 	
 	public void update() {
 		setImageBattle();
@@ -203,7 +213,7 @@ public class BattleSystem implements KeyListener{
 					if(p1.isPlayerDead()) {
 						p1.playerDead();
 						gp.gameState = gp.endGameState;
-						System.out.println("game over p1 win");
+						System.out.println("game over p2 win");
 					}
 					setHPBarP1();
 					setTurnState();
